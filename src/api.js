@@ -21,7 +21,6 @@ app.use("/",router.get("/sobre", (req, res, next) => {
 
 app.use('/entrar',router.post('/entrar',async(req, res, next)=>{
     let resp = await usuarioController.entrar(req.body.nick);
-    console.log(resp)
     res.status(200).send(resp);
 }));
 

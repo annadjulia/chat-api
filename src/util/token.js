@@ -18,15 +18,17 @@ const checktoken = async (token, id, key)=> {
        
             return false;
     }catch(e){
-        console.log(e);
+        console.log("e do checktoken: "+e);
     }
 };
 
 const setToken = async(id, key)=>{
-    console.log(id);
+    console.log("id do settoken: "+id);
     if(id){
+        console.log("set token foi");
         return jwt.sign({id}, key, {expiresIn: 28800});
     }
+    console.log("set token nao foi")
     return false;
 };
 
