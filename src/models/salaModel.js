@@ -6,7 +6,7 @@ let buscarSala= async(idsala)=>{
 
 let listarSalas = async ()=>{
     let salas = await db.findAll("salas");
-    return salas;
+    return JSON.stringify(salas);
 }
 
 let atualizarMensagens = async (sala) => {

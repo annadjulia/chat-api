@@ -6,19 +6,16 @@ const checktoken = async (token, id, key)=> {
     console.log("token: "+token)
     console.log("id: "+id)
     console.log("key: "+key)
-    try{
-        const dec = jwt.verify(token, key, (err, decoded) =>{
-            if (err){
-                return false;
-            }
-            if (decoded){
-                if(decoded.id ==id) return false;
-            }
-        });
-       
+    try {
+        const decoded = jwt.verify(token, key);
+        if (decoded.id == id) {
+            return true;
+        } else {
             return false;
-    }catch(e){
-        console.log("e do checktoken: "+e);
+        }
+    } catch (e) {
+        console.log("Erro em checktoken: " + e);
+        return false;
     }
 };
 
